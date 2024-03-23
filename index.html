@@ -5,49 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pomodoro Fit</title>
     <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
 </head>
+
 <body>
+  <script src="assets/js/fetch.js"></script>
 
   <nav>
+  <!--colocar logo aqui--><h1>Pomodoro App</h1>
 
+  <i class="fa-solid fa-gear cinza" ></i>
   </nav>
-
-
-  <main>
-
-    <section>
-
-      <button onclick="inicioPomodoro()">Começar</button>
-      <button onclick="pausePomodoro()">Pausar</button>
     
-      <div id="cronometro">00:00:00</div>  
-  
-    </section>
-
-    <section>
-      <!--colocar aqui os textos( Para pomodoro: Hora de focar, para intervalo 
-        curto Tempo para uma pausa e e para intervalo grande, tempo para uma pausa)-->
-    </section>
-
-    <section>
-      <!--Deixar aqui o local para a tarefa-->
-    </section>
+  <div class="button-container">
+    
+    <button id="pomodoro ">Pomodoro </button>
+    <button id="intervaloCurto"> Intervalo Curto</button>
+    <button id="intervaloLongo"> Intervalo Longo </button>
 
     
-  </main>
+    <div id="timer">25:00</div>
+    <button onclick="iniciar"><i class="fa-solid fa-play cinza grande icone"></i></button>
+    <button onclick="pausar"><i class="fa-solid fa-pause cinza grande icone"></i></button>
 
-  
+  </div> 
 
-   
-
-
-
-
-
-
-
-
-
-
-</body>
+    
+ </body>
 </html>
+
+
+
