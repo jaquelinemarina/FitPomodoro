@@ -108,58 +108,28 @@
   <div id="modal-stretching" class="change-background fundoVerde">
     <div class="modal">
       <div class="modal-content">
-        <div class="modal-stretching-logo"><img src="./assets/img/logo.png" alt="logo"></div>
+        <div class="modal-stretching-logo">
+          <img src="/assets/img/logo.png" alt="logo" width="300">
+        </div>
         <div class="modal-stretching-content">
-          <div class="modal-image-stretching" id="stretchingImage">
-          </div>
-          <div class="pomodoro-timer" id="pauseCountDown"> 05:00</div>
-          <div class="modal-text-stretching" id="stretchingText">
-            <div id="stretchingName"></div>
-            <div id="stretchingEquipment"></div>
-            <div id="stretchingMuscle"></div>
-            <div id="stretchingInstructions"></div>
-          </div>
+          <div class="modal-image-stretching" id="stretchingImage"></div>
           <div>
+            <div class="pomodoro-timer" id="pauseCountDown"> 05:00</div>
             <button id="btn-end-pause" class="change-text-color textoVermelho" type="button"
-              onclick="stretchingDone()">FINALIZAR O ALONGAMENTO</button>
+              onclick="stretchingDone()">FINALIZAR ALONGAMENTO</button>
           </div>
+          <div class="modal-text-stretching" id="stretchingText">
+            <div><strong>Nome do alongamento:</strong><span id="stretchingName"></span></div>
+            <div><strong>Equipamento utilizado:</strong><span id="stretchingEquipment"></span></div>
+            <div><strong>Músculo alongado:</strong><span id="stretchingMuscle"></div><span>
+          </div>
+          <div><strong>Instruções:</strong><span id="stretchingInstructions"></div><span>
         </div>
       </div>
     </div>
   </div>
+
   <!-- FIM MODAL DE Alongamento -->
-
-
-  <!-- EXEMPLO MODAL DE ALONGAMENTO -->
-  <!-- <div id="modal-stretching" class="change-background fundoVerde">
-    <div class="modal">
-      <div class="modal-stretching-content">
-        <div class="modal-stretching-logo"><img src="/assets/img/logo.png" alt="logo"></div>
-        <div class="modal-pause-content">
-          <div class="modal-image-stretching">
-            <div id="stretchingImage"></div>
-          </div>
-          <div class="stretchingPauseCountDown">
-            <div class="pomodoro-timer" id="pauseCountDown"> 05:00</div>
-            <div>
-              <button id="btn-end-pause" class="change-text-color textoVermelho" type="button"
-                onclick="stretchingDone()">FINALIZAR O ALONGAMENTO</button>
-            </div>
-          </div>
-          <div class="stretchingInfos">
-            <div class="modal-text-stretching" id="stretchingText">
-              <div id="stretchingName"></div>
-              <div id="stretchingEquipment"></div>
-              <div id="stretchingMuscle"></div>
-              <div id="stretchingInstructions"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> -->
-
-  <!-- EXEMPLO MODAL DE Alongamento -->
 
 
 
@@ -240,6 +210,13 @@
       </div>
     </div>
     <!-- FIM MODAL DE DESCRIÇÃO -->
+    <div class="api" id="right-botton-corner">
+      <ul>
+        <li>Consumir a API do API-Ninjas</li>
+        <li>Créditos e Referências</li>
+      </ul>
+    </div>
+
     <!-- <script type="text/javascript" src="./assets/js/allJsTogheter.js"></script> -->
     <!-- SE QUiSER USAR TODOS OS JS JUNTOS, DESCOMENTAR A LINHA ACIMA E COMENTAR TODAS AS LINHAS ABAIXO. -->
     <script type="text/javascript" src="./assets/js/startApp.js"></script>
