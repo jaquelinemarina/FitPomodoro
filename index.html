@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fitPomodoro</title>
   <link rel="stylesheet" href="./assets/css/styles.css">
+  <link rel="stylesheet" href="./assets/css/leia.css">
   <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
 
 
@@ -60,7 +61,7 @@
   <div id="modal" class="change-background fundoVermelho">
     <div class="modal">
       <div class="modal-content">
-        <div class="modal-logo"><img src="/assets/img/logo.png" alt="logo"></div>
+        <div class="modal-logo"><img src="./assets/img/logo.png" alt="logo"></div>
         <div class="modal-form">
           <form id="configPomodoro">
             <div>
@@ -107,7 +108,7 @@
   <div id="modal-stretching" class="change-background fundoVerde">
     <div class="modal">
       <div class="modal-content">
-        <div class="modal-stretching-logo"><img src="/assets/img/logo.png" alt="logo"></div>
+        <div class="modal-stretching-logo"><img src="./assets/img/logo.png" alt="logo"></div>
         <div class="modal-stretching-content">
           <div class="modal-image-stretching" id="stretchingImage">
           </div>
@@ -171,7 +172,7 @@
         <div class="modal-stretching-all-done-content">
           <div class="modal-screen-logo-buttons">
             <div class="modal-logo-all-done">
-              <img src="/assets/img/logo.png" alt="logo">
+              <img src="./assets/img/logo.png" alt="logo">
             </div>
             <div class="modal-buttons-all-done">
               <button id="choose-difficulty" class="change-background" type="button">QUERO OUTRA
@@ -182,7 +183,7 @@
             </div>
           </div>
           <div class="modal-screen-congratulation">
-            <div class="modal-image-congratulation"><img src="/assets/img/congratulation.png"></div>
+            <div class="modal-image-congratulation"><img src="./assets/img/congratulation.png"></div>
             <div class="modal-text-congratulation">Avançado Concluído</div>
           </div>
         </div>
@@ -194,7 +195,7 @@
 
   <!-- INICIO MODAL DE DESCRIÇÃO -->
   <div id="modal-description">
-    <div class="modal">
+    <div class="modal" style="background-color: #ece3d5;;">
       <div class="description-container">
         <a href="#" class="btn fa-solid fa-xmark" onclick="hideDescriptionModal()" id="exit-icon"></a>
         <div class="text">
@@ -238,21 +239,22 @@
               <li>Realize o exercício de alongamento indicado na tela</li>
               <li>Depois de 4 pomodoros, faça uma pausa longa de 15 minutos</li>
             </ol>
-            <img class="logo2" src="/assets/img/logo2.png" alt="logo">
+            <img class="logo2" src="./assets/img/logo2.png" alt="logo">
           </div>
         </div>
       </div>
     </div>
   </div>
   <!-- FIM MODAL DE DESCRIÇÃO -->
-  <script type="text/javascript" src="./assets/js/allJsTogheter.js"></script>
-  <!-- <script type="text/javascript" src="./assets/js/startApp.js"></script>
+  <!-- <script type="text/javascript" src="./assets/js/allJsTogheter.js"></script> -->
+  <!-- SE QUiSER USAR TODOS OS JS JUNTOS, DESCOMENTAR A LINHA ACIMA E COMENTAR TODAS AS LINHAS ABAIXO. -->
+  <script type="text/javascript" src="./assets/js/startApp.js"></script>
   <script type="text/javascript" src="./assets/js/modais.js"></script>
   <script type="text/javascript" src="./assets/js/designFuncions.js"></script>
   <script type="text/javascript" src="./assets/js/pomodoroControls.js"></script>
   <script type="text/javascript" src="./assets/js/stretchingsControls.js"></script>
   <script type="text/javascript" src="./assets/js/pauseControls.js"></script>
-  <script type="text/javascript" src="./assets/js/gamificationControls.js"></script> -->
+  <script type="text/javascript" src="./assets/js/gamificationControls.js"></script>
 
 </body>
 
