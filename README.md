@@ -29,8 +29,6 @@ O uso é intuitivo, não requerendo comandos específicos além da interação d
 - Vanderleia Oliveira: [GitHub](https://github.com/VanderleiaOliveira)
 - Vanderley Rais: [GitHub](https://github.com/vanderleyrais)
 
-Sinta-se à vontade para forkar o projeto, criar um pull request ou abrir issues para sugerir melhorias e reportar bugs.
-
 ## Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalhes.
