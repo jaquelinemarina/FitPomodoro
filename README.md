@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/VanderleiaOliveira/Pomodoro-Fit/blob/main/assets/img/logo.png?raw=true" alt="Logo fitPomodoro">
+</p>
+
 # fitPomodoro
 
 **fitPomodoro** é um timer Pomodoro desenvolvido como parte de um desafio de trabalho em squads para o curso **futuroDev** do **Floripa Mais Tech**, coordenado pelo **Lab365** em parceria com o **SESI** e **SENAC**.
