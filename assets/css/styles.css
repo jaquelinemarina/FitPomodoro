@@ -57,79 +57,67 @@ body {
 
 /*alterações Jaque*/
 
-.modal-content {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 70px;
-   max-width: 500px;
-   z-index: 1002;
-}
-
-h3 {
-   font-family: poppins;
-   font-size: 18px;
-   font-weight: 400;
-   letter-spacing: 1px;
-   color: var(--bone);
-   margin-bottom: 12px;
-}
-
-#username,
-#difficulty {
-   height: 35px;
-   width: 283px;
-   padding: 5px;
-   font-family: poppins;
-   font-size: 15px;
-   color: var(--bone);
-   border-color: var(--bone);
-   border-radius: 5px;
-   border-style: solid;
-   border-width: 1px;
-   outline: none;
+.logo2 {
+   width: 330px;
+   margin-top: 70px;
    margin-bottom: 10px;
-   margin-top: 10px;
 }
 
-input::placeholder {
-   color: var(--shadonBone);
+#exit-icon {
+   position: absolute;
+   text-decoration: none;
+   color: var(--cornellRed);
+   font-size: 33px;
+   margin-right: 50px;
+   text-shadow: 3px 3px 2.6px rgba(0, 0, 0, 0.15);
+   margin-left: 95vw;
+   margin-top: 50px;
 }
 
-label,
-#difficulty {
-   color: var(--shadonBone);
-   font-family: poppins;
-   font-size: 15px;
-}
-
-.inputTime {
-   text-align: right;
-   height: 35px;
-   width: 45px;
-   margin: 5px;
-   color: var(--shadonBone);
-   border-style: solid;
-   outline: none;
-   border-color: var(--bone);
-   border-radius: 5px;
-   border-width: 1px;
-   font-size: 16px;
-   font-family: poppins;
-}
-
-#btn-save {
-   height: 35px;
-   width: 100px;
-   padding: 5px;
-   font-family: poppins;
-   font-weight: 600;
-   font-size: 14px;
-
+.description-container {
+   display: flex;
+   flex-direction: column;
+   justify-content: flex-start;
+   align-items: center;
+   text-align: start;
    background-color: var(--bone);
-   border-radius: 5px;
-   border: none;
-   margin-top: 25px;
+   height: 100%;
+   width: 100%;
+   font-family: poppins;
+   overflow: auto;
+}
+
+.about {
+   width: 750px;
+   margin-bottom: 55px;
+}
+
+h1 {
+   color: var(--cornellRed);
+   margin-top: 55px;
+   margin-bottom: 8px;
+   font-size: 25px;
+   font-family: prata;
+}
+
+span,
+li {
+   font-size: 17px;
+   color: rgb(136, 121, 121);
+}
+
+li {
+   margin-left: 20px;
+}
+
+::-webkit-scrollbar {
+   width: 6px;
+   background-color: rgb(171, 168, 168);
+
+}
+
+::-webkit-scrollbar-thumb {
+   background: var(--cornellRed);
 }
 
 /*fim alteraçõe Jaque*/
