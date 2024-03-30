@@ -264,8 +264,8 @@ function startPomodoro() {
           parseInt(localStorage.getItem('pomodoroDuration')) || 25;
         timeLeftInSeconds = durationMinutes * 60;
       }
-      // Atualiza o display do pomodoro.
-      updateCountdownDisplay();
+
+      updateCountdownDisplay(); // Atualiza o display inicialmente.
 
       countdownInterval = setInterval(() => {
         if (timeLeftInSeconds > 0) {
@@ -273,21 +273,16 @@ function startPomodoro() {
           updateCountdownDisplay();
         } else {
           clearInterval(countdownInterval);
-          // Limpa o intervalo de contagem regressiva
-          countdownInterval = null;
-          // Atualiza o estado do Pomodoro
-          isPomodoroRunning = false;
-          // Reproduz o som de fim de Pomodoro
-          pomodoroEndSound.play();
-          // Exibe o modal de alongamento ao final do Pomodoro
-          showStretchingModal();
+          countdownInterval = null; // Limpa o intervalo de contagem regressiva
+          isPomodoroRunning = false; // Atualiza o estado do Pomodoro
+          pomodoroEndSound.play(); // Reproduz o som de fim de Pomodoro
+          showStretchingModal(); // Exibe o modal de alongamento ao final do Pomodoro
           showStretching();
           playPauseIcon.classList.replace('fa-pause', 'fa-play');
         }
       }, 1000);
     }
-    // Marca o Pomodoro como ativo
-    isPomodoroRunning = true;
+    isPomodoroRunning = true; // Marca o Pomodoro como ativo
   }
 }
 
@@ -381,8 +376,7 @@ async function showStretching() {
         imageUrl = '/assets/img/alongamentos/avancado.png';
         break;
       default:
-        // Imagem padrão caso necessário é boa pratica mas nunca deve acontecer
-        imageUrl = '/assets/img/alongamentos/default.png';
+        imageUrl = '/assets/img/alongamentos/default.png'; // Imagem padrão caso necessário
     }
 
     // Atualiza o elemento de imagem com a URL correta
@@ -454,6 +448,12 @@ function startStretchingPause() {
     ? parseInt(localStorage.getItem('pomodoroLongPause'))
     : parseInt(localStorage.getItem('pomodoroPause'));
 
+  // console.log(
+  //   `Iniciando ${
+  //     isLongPause ? 'uma pausa longa' : 'uma pausa curta'
+  //   } de ${pauseDuration} minutos.`
+  // );
+
   pauseTimeLeftInSeconds = pauseDuration * 60;
   updatePauseCountDownDisplay();
 
@@ -474,9 +474,8 @@ function incrementPauseCount() {
 
   // Incrementa o contador de pausas até 4, então reinicia para a próxima ser uma pausa longa
   if (pauseCount === 4) {
-    // console.log(`Pausa atual: ${pauseCount} - Próxima será uma pausa curta.`);
-    // Reinicia o contador de pausas
-    localStorage.setItem('pause', '0');
+    console.log(`Pausa atual: ${pauseCount} - Próxima será uma pausa curta.`);
+    localStorage.setItem('pause', '0'); // Reinicia o contador de pausas
   } else {
     pauseCount++;
     console.log(
