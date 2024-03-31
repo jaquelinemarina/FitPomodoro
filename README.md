@@ -41,6 +41,10 @@ git clone https://github.com/VanderleiaOliveira/Pomodoro-Fit.git
 
 O uso é intuitivo com interação direta com o navegador.
 
+## Documentação
+
+A documentação encontra-se no diretório **docs**
+
 ## Utilizando a api do API-NINJAS
 
 Para utilizar a API-NINJAS, siga os passos abaixo e acesso o arquivo api.html no diretório principal:
