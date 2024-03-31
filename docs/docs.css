@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=Prata&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/*após usar https://coolors.co/  para gerar uma paleta de cores*/
+:root {
+  --blackJack: #101419;
+  --bone: #ece3d5;
+  --cornellRed: #851A1A;
+  --delftBlue: #454372;
+  --shamrockGreen: #25681D;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.doc-container {}
