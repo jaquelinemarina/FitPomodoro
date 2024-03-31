@@ -560,6 +560,7 @@ form {
 
 .about {
    width: 750px;
+   overflow: auto;
 }
 
 .howToUse {
