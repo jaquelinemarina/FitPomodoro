@@ -521,11 +521,11 @@ form {
 }
 
 /* CSS MODAL DE DESCRIÇÃO */
-.logo2 {
+/* .logo2 {
    width: 380px;
    margin-top: 140px;
    margin-left: 170px;
-}
+} */
 
 #exit-icon {
    position: absolute;
@@ -545,11 +545,11 @@ form {
    justify-content: flex-start;
    align-items: center;
    text-align: start;
-   background-color: var(--bone);
    height: 100vh;
    width: 100vw;
    font-family: poppins;
    overflow: auto;
+
 }
 
 .text {
@@ -557,7 +557,6 @@ form {
    flex-direction: row;
    margin-left: 10px;
    gap: 90px;
-
 }
 
 .about {

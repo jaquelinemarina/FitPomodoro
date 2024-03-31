@@ -10,13 +10,48 @@
 
 <body>
   <div class="doc-container">
-    <div class="logo"><img src="./assets/img/logo.png" alt="logo"></div>
+    <img class="logo" src="./assets/img/logo2.png" alt="logo">
+    <h1>Documentação das Funções de Modal</h1>
+
+    <div class="doc-functions">
+      <div class="doc-functions-title">showModal() </div>
+      <div class="doc-functions-subtitle">O QUE FAZ:</div>
+      <div class="doc-functions-text">Exibe o modal principal alterando sua classe CSS para torná-lo visível.</div>
+      <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+      <div class="doc-code">
+        <code>
+      function showModal() {
+        const modalBg = document.getElementById('modal');
+        modalBg.classList.add('showModal');
+      }
+    </code>
+      </div>
+      <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+    </div>
+
     <div class="text">
       <div class="about">
 
-        <img class="logo" src="./assets/img/logo2.png" alt="logo">
 
-        <h1>O que é o FitPomodoro?</h1>
+
+
+
+
+
+        O QUE FAZ:
+        Exibe o modal principal alterando sua classe CSS para torná-lo visível.
+
+        A FUNÇÃO:
+
+        javascript
+        Copy code
+
+        Explicação passo a passo:
+
+        Obtém o elemento Modal: A função seleciona o elemento HTML com o ID modal.
+        Torna o Modal Visível: Adiciona a classe showModal ao elemento, tornando-o visível.
+
+        O que é o FitPomodoro?</h1>
         <span>O FitPomodoro é mais do que um simples temporizador Pomodoro - é uma ferramenta personalizável
           que integra
           exercícios de alongamento durante os intervalos. Com o objetivo de promover equilíbrio entre
