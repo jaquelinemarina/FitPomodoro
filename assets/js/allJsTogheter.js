@@ -411,9 +411,9 @@ function stretchingDone() {
   hideStretchingModal();
 
   // Limpa o conteúdo do alongamento (se necessário)
-  document.getElementById('stretchingName').textContent = '';
-  document.getElementById('stretchingEquipment').textContent = '';
-  document.getElementById('stretchingMuscle').textContent = '';
+  // document.getElementById('stretchingName').textContent = '';
+  // document.getElementById('stretchingEquipment').textContent = '';
+  // document.getElementById('stretchingMuscle').textContent = '';
   document.getElementById('stretchingInstructions').textContent = '';
 
   // Incrementa o total de alongamentos feitos

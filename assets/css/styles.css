@@ -125,7 +125,6 @@ label,
    font-family: poppins;
    font-weight: 600;
    font-size: 14px;
-   color: var(--defaultBg);
    background-color: var(--bone);
    border-radius: 5px;
    border: none;
