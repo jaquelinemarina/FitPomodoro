@@ -1,8 +1,8 @@
 <p align="center">
-  <img src="https://github.com/VanderleiaOliveira/Pomodoro-Fit/blob/main/assets/img/logo2.png?raw=true" alt="Logo fitPomodoro">
+  <img src="https://github.com/VanderleiaOliveira/Pomodoro-Fit/blob/main/assets/img/logo2.png?raw=true" alt="Logo FitPomodoro">
 </p>
 
-# fitPomodoro
+# FitPomodoro
 
 **FitPomodoro** é um timer Pomodoro desenvolvido como parte de um desafio de trabalho em squads para o curso **FuturoDev** do **Floripa Mais Tec**, coordenado pelo **Lab365** em parceria com o **SESI** e **SENAC**.
 
@@ -10,9 +10,9 @@ Este projeto visa incentivar práticas de alongamento durante as pausas do Pomod
 
 As pausas estão divididas em níveis de dificuldade:
 
-- iniciante
-- intermediário
-- avançado.
+- Iniciante
+- Intermediário
+- Avançado
 
 Ao concluir um nível de dificuldades, o usuário é parabenizado e convidado a refazer ou trocar o nível de dificuldade.
 
@@ -31,7 +31,7 @@ Ao concluir um nível de dificuldades, o usuário é parabenizado e convidado a 
 
 ## Instalação
 
-Para usar o fitPomodoro, clone ou faça download do repositório:
+Para usar o FitPomodoro, clone ou faça download do repositório:
 
 ```bash
 git clone https://github.com/VanderleiaOliveira/Pomodoro-Fit.git
