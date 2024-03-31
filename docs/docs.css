@@ -34,7 +34,7 @@ body {
   display: flex;
   flex-direction: column;
   font-family: poppins;
-  width: 800px;
+  width: 1000px;
   overflow: auto;
 }
 
