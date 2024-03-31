@@ -576,6 +576,547 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
     </div>
+
+    <div class="doc-container">
+      <div>
+        <h1>Funções Relacionadas ao funcionamento do Pomodoro</h1>
+      </div>
+    </div>
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">startPomodoro() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função startPomodoro() é responsável por iniciar o temporizador do Pomodoro,
+          controlando a contagem regressiva baseada na duração configurada pelo usuário. Se o Pomodoro não estiver
+          atualmente rodando, esta função prepara e inicia a contagem, atualiza a interface do usuário para refletir o
+          tempo restante, e, ao término, notifica o usuário através de um som, além de exibir o modal de alongamento.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function startPomodoro() {
+            const playPauseIcon = document.getElementById('playPauseIcon');
+            if (!isPomodoroRunning) {
+              if (!countdownInterval) {
+                if (timeLeftInSeconds <= 0) {
+                  const durationMinutes =
+                    parseInt(localStorage.getItem('pomodoroDuration')) || 25;
+                  timeLeftInSeconds = durationMinutes * 60;
+                }
+          
+                updateCountdownDisplay(); 
+          
+                countdownInterval = setInterval(() => {
+                  if (timeLeftInSeconds > 0) {
+                    timeLeftInSeconds--;
+                    updateCountdownDisplay();
+                  } else {
+                    clearInterval(countdownInterval);
+                    countdownInterval = null; 
+                    isPomodoroRunning = false;
+                    pomodoroEndSound.play();
+                    showStretchingModal(); 
+                    showStretching();
+                    playPauseIcon.classList.replace('fa-pause', 'fa-play');
+                  }
+                }, 1000);
+              }
+              isPomodoroRunning = true;
+            }
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Verificação do Estado do Pomodoro: </strong><br> A função primeiro verifica se o Pomodoro já está em
+          execução para evitar a reinicialização do temporizador atual.<br>
+          - <strong>Preparação do Temporizador: </strong><br> Se o temporizador do Pomodoro não estiver ativo
+          (countdownInterval não estiver definido), a função prepara o temporizador. Isso inclui definir a duração do
+          Pomodoro (recuperada do localStorage ou valor padrão de 25 minutos) e reiniciar o timeLeftInSeconds.<br>
+          - <strong>Início da Contagem Regressiva: </strong><br> Utiliza setInterval para criar um temporizador que
+          decrementa timeLeftInSeconds a cada segundo. A cada decremento, a função updateCountdownDisplay() é chamada
+          para atualizar visualmente o tempo restante na interface do usuário.
+          <br>
+          - <strong>Conclusão do Pomodoro: </strong><br> Quando o tempo chega a zero, a contagem regressiva é
+          interrompida (clearInterval), o estado do Pomodoro é atualizado para não rodando (isPomodoroRunning = false),
+          o som de término do Pomodoro é reproduzido, e o modal de alongamento é exibido através da função
+          showStretchingModal(). Além disso, a função showStretching() é chamada para selecionar e preparar um
+          alongamento específico.<br>
+          - <strong>Atualização do Ícone de Controle: </strong><br> O ícone no botão de controle é atualizado de "play"
+          para "pause", refletindo que o Pomodoro está ativo.
+          <br>
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">pausePomodoro() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função pausePomodoro() é projetada para pausar o temporizador do Pomodoro caso
+          ele esteja ativo. Isso é feito interrompendo a contagem regressiva e atualizando o estado da aplicação para
+          refletir que o Pomodoro não está mais rodando.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function pausePomodoro() {
+            if (isPomodoroRunning && countdownInterval) {
+              clearInterval(countdownInterval);
+              countdownInterval = null;
+              isPomodoroRunning = false;
+            }
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Verificação do Estado do Pomodoro: </strong><br> Primeiro, a função verifica se o Pomodoro está
+          atualmente em execução (isPomodoroRunning é true) e se existe um intervalo de contagem regressiva ativo
+          (countdownInterval não é null). Esta etapa assegura que a função só tentará pausar o Pomodoro se ele estiver
+          efetivamente rodando.<br>
+          - <strong>Parada da Contagem Regressiva: </strong><br> Utiliza clearInterval(countdownInterval) para parar o
+          intervalo de contagem regressiva que decrementa timeLeftInSeconds a cada segundo. Esta ação interrompe
+          efetivamente a contagem regressiva do Pomodoro.<br>
+          - <strong>Reinicialização do Intervalo de Contagem Regressiva: </strong><br> A variável countdownInterval é
+          definida como null após a interrupção do intervalo. Isso indica que não há uma contagem regressiva em execução
+          no momento e permite que a contagem regressiva seja reiniciada posteriormente sem conflitos.
+          <br>
+          - <strong>Atualização do Estado do Pomodoro: </strong><br> O estado isPomodoroRunning é definido como false,
+          refletindo que o Pomodoro foi pausado e não está mais ativo.
+          <br>
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">resetPomodoro() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função resetPomodoro() é responsável por reiniciar completamente o
+          temporizador do Pomodoro, configurando-o de volta para a duração inicial configurada pelo usuário ou para o
+          valor padrão. Ela interrompe qualquer contagem regressiva em andamento, reseta o estado do Pomodoro para não
+          ativo, e atualiza a interface do usuário para refletir essas mudanças.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function resetPomodoro() {
+            if (countdownInterval) {
+              clearInterval(countdownInterval);
+              countdownInterval = null;
+            }
+            isPomodoroRunning = false;
+
+            const durationMinutes =
+              parseInt(localStorage.getItem('pomodoroDuration')) || 25;
+            timeLeftInSeconds = durationMinutes * 60;
+
+            updateCountdownDisplay();
+
+            const playPauseIcon = document.getElementById('playPauseIcon');
+            if (playPauseIcon.classList.contains('fa-pause')) {
+              playPauseIcon.classList.replace('fa-pause', 'fa-play');
+            }
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Parada da Contagem Regressiva Ativa: </strong><br> Se houver uma contagem regressiva em andamento
+          (indicado pela existência de countdownInterval), a função a interrompe com clearInterval(countdownInterval) e
+          define countdownInterval como null. Isso garante que a contagem regressiva anterior seja completamente
+          interrompida antes de reiniciar.<br>
+          - <strong>Reconfiguração do Estado do Pomodoro: </strong><br> Define isPomodoroRunning como false, indicando
+          que o Pomodoro não está mais rodando. Isso é necessário para garantir que o estado da aplicação reflita
+          corretamente a ação de reset.<br>
+          - <strong>Definição do Tempo Inicial: </strong><br> Configura timeLeftInSeconds para o valor especificado nas
+          configurações do usuário armazenadas em localStorage ou, na ausência deste, para o valor padrão de 25 minutos.
+          Isso prepara o temporizador para uma nova sessão com a duração correta.
+          <br>
+          - <strong>Atualização da Interface do Usuário: </strong><br> Chama a função updateCountdownDisplay() para
+          atualizar a exibição do contador com o novo tempo de início. Isso garante que a interface do usuário mostre
+          corretamente o tempo total disponível para a próxima sessão do Pomodoro.
+          <br>
+          - <strong>Ajuste do Ícone do Botão de Play/Pause: </strong><br> Se o ícone do botão de play/pause estiver
+          mostrando "pause" (indicado pela classe fa-pause), ele é substituído por "play" (indicado pela classe
+          fa-play). Isso reflete a ação de reset na interface do usuário, mostrando que o Pomodoro está pronto para ser
+          iniciado novamente.<br>
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">updateCountdownDisplay() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função updateCountdownDisplay() atualiza a exibição do contador na interface
+          do usuário para refletir o tempo restante atual no temporizador do Pomodoro. Ela calcula os minutos e segundos
+          a partir do valor total em segundos (timeLeftInSeconds) e formata esses valores para um formato legível de
+          relógio (MM:SS), garantindo que sempre haja dois dígitos para minutos e segundos.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function updateCountdownDisplay() {
+              const minutes = Math.floor(timeLeftInSeconds / 60);
+              const seconds = timeLeftInSeconds % 60;
+              document.getElementById('pomodoroCountdown').textContent = `${String(
+                minutes
+              ).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Cálculo dos Minutos e Segundos: </strong><br> A variável minutes é calculada dividindo
+          timeLeftInSeconds por 60 e arredondando para baixo para o número inteiro mais próximo com Math.floor(). Isso
+          garante que apenas a parte inteira da divisão seja considerada para os minutos.<br>
+          A variável seconds é calculada usando o operador módulo (%) em timeLeftInSeconds, o que retorna o resto da
+          divisão de timeLeftInSeconds por 60. Isso efetivamente extrai a quantidade de segundos que sobram após os
+          minutos serem calculados.<br>
+          - <strong>Atualização do Texto do Contador: </strong><br>O método String().padStart(2, '0') é usado para
+          converter tanto minutes quanto seconds em strings e garantir que cada um tenha pelo menos dois dígitos,
+          adicionando um zero à esquerda se necessário. Isso é importante para manter o formato do tempo
+          consistentemente legível, independentemente da quantidade de tempo restante.
+          <br>O elemento HTML com o ID pomodoroCountdown é selecionado, e seu conteúdo de texto é atualizado com a
+          string formatada que representa o tempo restante no formato MM:SS.
+        </div>
+      </div>
+
+    </div>
+    <div class="doc-container">
+      <div>
+        <h1>Funções Relacionadas a Pausa</h1>
+      </div>
+    </div>
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">startStretchingPause() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função startStretchingPause() inicia a contagem regressiva para uma pausa no
+          Pomodoro, que pode ser uma pausa curta ou longa dependendo do número de sessões de Pomodoro completadas. A
+          duração da pausa é determinada pelas configurações salvas no localStorage, e a função atualiza dinamicamente a
+          exibição do contador de pausa na interface do usuário.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function startStretchingPause() {
+            const pauseCount = parseInt(localStorage.getItem('pause')) || 0;
+            const isLongPause = pauseCount === 4;
+          
+            const pauseDuration = isLongPause
+              ? parseInt(localStorage.getItem('pomodoroLongPause'))
+              : parseInt(localStorage.getItem('pomodoroPause'));
+          
+            pauseTimeLeftInSeconds = pauseDuration * 60;
+            updatePauseCountDownDisplay();
+          
+            pauseCountDownInterval = setInterval(() => {
+              if (pauseTimeLeftInSeconds > 0) {
+                pauseTimeLeftInSeconds--;
+                updatePauseCountDownDisplay();
+              } else {
+                clearInterval(pauseCountDownInterval);
+                pauseCountDownInterval = null;
+                pomodoroEndPauseSoung.play();
+              }
+            }, 1000);
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Determinação do Tipo de Pausa: </strong><br> A função primeiro verifica o número atual de pausas
+          completadas (pauseCount), obtido do localStorage. Se pauseCount é igual a 4, indica que é hora de uma pausa
+          longa.<br>
+          - <strong>Cálculo da Duração da Pausa: </strong><br> A duração da pausa (pauseDuration) é determinada com base
+          em se a pausa atual deve ser longa ou curta, consultando as configurações salvas no localStorage para
+          pomodoroLongPause ou pomodoroPause, respectivamente.<br>
+          - <strong>Início da Contagem Regressiva da Pausa: </strong><br> pauseTimeLeftInSeconds é configurado para o
+          total de segundos da pausa escolhida, convertendo pauseDuration em minutos para segundos.
+          <br>A função updatePauseCountDownDisplay() é chamada inicialmente para atualizar a interface do usuário com o
+          tempo total da pausa.
+          <br>
+          - <strong>Contagem Regressiva Ativa: </strong><br> Um intervalo de contagem regressiva (setInterval) é
+          iniciado, decrementando pauseTimeLeftInSeconds a cada segundo e atualizando a interface do usuário chamando
+          updatePauseCountDownDisplay() a cada decremento.<br>
+          - <strong>Conclusão da Pausa: </strong><br> Quando pauseTimeLeftInSeconds chega a 0, o intervalo é limpo
+          (usando clearInterval), o que encerra a contagem regressiva da pausa.
+          <br>O som de fim de pausa (pomodoroEndPauseSoung.play()) é reproduzido para notificar o usuário de que a pausa
+          terminou.
+
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">pausePomodoro() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função pausePomodoro() é projetada para pausar o temporizador do Pomodoro caso
+          ele esteja ativo. Isso é feito interrompendo a contagem regressiva e atualizando o estado da aplicação para
+          refletir que o Pomodoro não está mais rodando.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function pausePomodoro() {
+            if (isPomodoroRunning && countdownInterval) {
+              clearInterval(countdownInterval);
+              countdownInterval = null;
+              isPomodoroRunning = false;
+            }
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Verificação do Estado do Pomodoro: </strong><br> Primeiro, a função verifica se o Pomodoro está
+          atualmente em execução (isPomodoroRunning é true) e se existe um intervalo de contagem regressiva ativo
+          (countdownInterval não é null). Esta etapa assegura que a função só tentará pausar o Pomodoro se ele estiver
+          efetivamente rodando.<br>
+          - <strong>Parada da Contagem Regressiva: </strong><br> Utiliza clearInterval(countdownInterval) para parar o
+          intervalo de contagem regressiva que decrementa timeLeftInSeconds a cada segundo. Esta ação interrompe
+          efetivamente a contagem regressiva do Pomodoro.<br>
+          - <strong>Reinicialização do Intervalo de Contagem Regressiva: </strong><br> A variável countdownInterval é
+          definida como null após a interrupção do intervalo. Isso indica que não há uma contagem regressiva em execução
+          no momento e permite que a contagem regressiva seja reiniciada posteriormente sem conflitos.
+          <br>
+          - <strong>Atualização do Estado do Pomodoro: </strong><br> O estado isPomodoroRunning é definido como false,
+          refletindo que o Pomodoro foi pausado e não está mais ativo.
+          <br>
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">incrementPauseCount() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função incrementPauseCount() gerencia e atualiza o contador de pausas do
+          Pomodoro armazenado no localStorage. O método incrementa o contador de pausas após cada sessão de Pomodoro,
+          reiniciando o contador depois de atingir quatro pausas (indicando que a próxima pausa deverá ser uma pausa
+          longa, conforme a metodologia Pomodoro).
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function incrementPauseCount() {
+            let pauseCount = parseInt(localStorage.getItem('pause')) || 0;
+            if (pauseCount === 4) {
+              localStorage.setItem('pause', '0');
+            } else {
+              pauseCount++;
+              localStorage.setItem('pause', pauseCount.toString());
+            }
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Recuperação e Incremento do Contador de Pausas: </strong><br>A função inicia recuperando o valor
+          atual do contador de pausas (pauseCount) do localStorage. Se não houver um valor definido, assume-se 0 como
+          padrão.
+          <br> Verifica se pauseCount alcançou 4, o limite para pausas curtas antes de uma pausa longa ser
+          necessária.<br>
+          - <strong>Reinício ou Incremento do Contador: </strong><br> Se pauseCount é igual a 4: O contador de pausas é
+          reiniciado para 0, indicando que todas as pausas curtas foram consumidas e uma pausa longa acaba de ser
+          completada. Uma mensagem é registrada no console para informar o estado atual.
+          <br> Se pauseCount é menor que 4: O contador é incrementado em 1, preparando para a próxima pausa. Uma
+          mensagem é registrada no console detalhando o número atual da pausa e a duração da próxima pausa (curta ou
+          longa), com base nas configurações armazenadas no localStorage.<br>
+          - <strong>Definição do Tempo Inicial: </strong><br> Configura timeLeftInSeconds para o valor especificado nas
+          configurações do usuário armazenadas em localStorage ou, na ausência deste, para o valor padrão de 25 minutos.
+          Isso prepara o temporizador para uma nova sessão com a duração correta.
+          <br>
+          - <strong>Atualização do localStorage: </strong><br> O novo valor de pauseCount é convertido para uma string e
+          salvo no localStorage, atualizando o registro do número de pausas completadas até o momento.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">updatePauseCountDownDisplay() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função updatePauseCountDownDisplay() atualiza a exibição do contador de pausa
+          na interface do usuário para mostrar o tempo restante da pausa em andamento. Similar à função que atualiza o
+          contador do Pomodoro, esta função calcula os minutos e segundos restantes com base em pauseTimeLeftInSeconds e
+          formata a saída para garantir que sempre mostre dois dígitos para minutos e segundos, facilitando a leitura do
+          tempo restante.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function updatePauseCountDownDisplay() {
+            const minutes = Math.floor(pauseTimeLeftInSeconds / 60);
+            const seconds = pauseTimeLeftInSeconds % 60;
+            document.getElementById('pauseCountDown').textContent = `${String(
+              minutes
+            ).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Cálculo de Minutos e Segundos: </strong><br> Divide pauseTimeLeftInSeconds por 60 e usa Math.floor
+          para obter o número inteiro de minutos restantes, descartando os segundos residuais.
+          <br> Utiliza o operador de módulo (%) para encontrar os segundos restantes após extrair os minutos
+          completos.<br>
+          - <strong>Formatação e Exibição do Tempo Restante: </strong><br>Converte os valores de minutos e segundos para
+          strings e usa padStart(2, '0') para garantir que ambos tenham pelo menos dois dígitos, preenchendo com zeros à
+          esquerda se necessário. Isso é importante para manter a consistência visual do contador, especialmente quando
+          algum dos valores é menor que 10.
+          <br>Atualiza o conteúdo de texto do elemento HTML identificado por pauseCountDown com a string formatada,
+          mostrando o tempo restante no formato MM:SS.
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="doc-container">
+      <div>
+        <h1>Gameficação do pomodoro</h1>
+      </div>
+    </div>
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">stretchingDone() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função stretchingDone() é chamada ao finalizar um alongamento durante a pausa
+          do Pomodoro. Ela executa várias tarefas chave para administrar o estado do ciclo de Pomodoro, incluindo parar
+          o contador de pausa, atualizar o contador de pausas, fechar o modal de alongamento, limpar o conteúdo do
+          alongamento e incrementar o total de alongamentos concluídos. Adicionalmente, atualiza o progresso do nível de
+          dificuldade com base nos alongamentos realizados.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function stretchingDone() {
+            if (pauseCountDownInterval) {
+              clearInterval(pauseCountDownInterval);
+              pauseCountDownInterval = null;
+            }
+          
+            incrementPauseCount();
+          
+            hideStretchingModal();
+          
+            document.getElementById('stretchingInstructions').textContent = '';
+          
+            const totalStretchingDone =
+              parseInt(localStorage.getItem('totalStretchingDone') || '0') + 1;
+            localStorage.setItem('totalStretchingDone', totalStretchingDone.toString());
+          
+            updateLevelProgress();
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Encerramento do Contador de Pausa: </strong><br> Verifica se existe um intervalo de contagem
+          regressiva para a pausa (pauseCountDownInterval) ativo e, em caso positivo, usa clearInterval para pará-lo.
+          Isso interrompe a contagem regressiva da pausa de alongamento.
+          <br>A variável pauseCountDownInterval é então definida como null, indicando que não há mais um contador
+          ativo.<br>
+          - <strong>Atualização do Contador de Pausas: </strong><br> Chama a função incrementPauseCount() para atualizar
+          o número de pausas completadas. Isso é importante para administrar corretamente as pausas curtas e longas no
+          ciclo de Pomodoro.<br>
+          - <strong>Fechamento do Modal de Alongamento: </strong><br> Usa a função hideStretchingModal() para ocultar o
+          modal de alongamento, sinalizando o fim da atividade de alongamento e permitindo que o usuário retorne ao foco
+          no trabalho ou estudo.
+          <br>
+          - <strong>Limpeza do Conteúdo de Alongamento: </strong><br> Remove o texto de instruções do alongamento
+          (stretchingInstructions). Nota: Comentários referentes a limpar outros conteúdos foram omitidos, mas poderiam
+          ser reativados conforme necessário para limpar completamente o modal.<br>
+          - <strong>Incremento do Total de Alongamentos Feitos: </strong><br> Recupera e incrementa o total de
+          alongamentos concluídos armazenados em localStorage, refletindo a adição de mais um alongamento à contagem do
+          usuário.
+          <br>Atualiza o localStorage com o novo total.<br>
+          - <strong>Atualização do Progresso no Nível: </strong><br> Chama updateLevelProgress() para revisar e
+          atualizar o progresso do usuário em relação aos alongamentos e dificuldade atual. Isso pode incluir a exibição
+          de novos objetivos ou a mudança de nível.
+
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">updateLevelProgress() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">A função updateLevelProgress() atualiza o progresso do usuário em relação aos
+          alongamentos dentro de um determinado nível de dificuldade. Calcula o total de alongamentos disponíveis para a
+          dificuldade atual, subtrai os já completados, e atualiza a interface do usuário para refletir os alongamentos
+          restantes. Além disso, exibe um modal de parabenização caso todos os alongamentos para o nível de dificuldade
+          atual tenham sido completados.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>async function updateLevelProgress() {
+            const usernameInput = document.getElementById('username'); 
+            const username = usernameInput ? usernameInput.value : null; 
+            const difficulty = localStorage.getItem('difficulty');
+            let key = `previous${
+              difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
+            }Stretchings`;
+          
+            const previousStretchings = JSON.parse(localStorage.getItem(key) || '[]');
+            const stretchings = await loadStretchings();
+          
+            const totalForDifficulty = stretchings.filter(
+              (stretch) => stretch.difficulty === difficulty
+            ).length;
+            const remaining = totalForDifficulty - previousStretchings.length;
+            if (remaining <= 0) {
+              showStretchingAllDoneModal();
+            }
+            document.getElementById('level').innerText = `${remaining}`;
+          
+            const levelLink = document.getElementById('level');
+            if (username) {
+              levelLink.setAttribute(
+                'title',
+                `${username}, você ainda tem ${remaining} alongamentos para concluir este nível`
+              );
+            } else {
+              levelLink.setAttribute(
+                'title',
+                `Você ainda tem ${remaining} alongamentos para concluir este nível`
+              );
+            }
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Identificação do Usuário e Dificuldade: </strong><br> Obtém o nome do usuário e a dificuldade atual
+          das configurações para personalizar a experiência.<br>
+          - <strong>Cálculo de Alongamentos Restantes: </strong><br> Carrega a lista de alongamentos disponíveis
+          chamando loadStretchings() e filtra aqueles que correspondem à dificuldade selecionada pelo usuário.
+          <br>Compara o total de alongamentos para a dificuldade com os já completados (armazenados em localStorage)
+          para
+          encontrar o número restante.<br>
+          - <strong>Atualização da Interface do Usuário: </strong><br> Atualiza o elemento que mostra o número de
+          alongamentos restantes.
+          <br>Modifica o atributo title do link de progresso para incluir uma mensagem motivacional, personalizada com o
+          nome do usuário quando disponível.
+          <br>
+          - <strong>Exibição do Modal de Conclusão: </strong><br> Caso não haja mais alongamentos a completar para a
+          dificuldade atual, exibe um modal de parabenização.
+        </div>
+      </div>
+
+      <div class="doc-functions-subtitle">Eventos Adicionais:</div>
+      <div class="doc-code">
+        <pre>
+          document
+            .getElementById('choose-difficulty')
+            .addEventListener('click', function () {
+              hideStretchingAllDoneModal();
+              showModal();
+            });
+        
+   document.getElementById('restart-level').addEventListener('click', function () {
+            hideStretchingAllDoneModal();
+            const difficulty = localStorage.getItem('difficulty');
+            let key = `previous${
+              difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
+            }Stretchings`;
+            localStorage.setItem(key, '[]');
+            updateLevelProgress();
+          });
+</pre>
+      </div>
+      <div class="doc-functions-subtitle">O QUE FAZEM:</div>
+      <div class="doc-functions-text"><strong>Alteração de Dificuldade e Reinício de Nível:</strong><br>
+        Ouvintes de eventos são adicionados para permitir ao usuário escolher outra dificuldade ou reiniciar o nível de
+        dificuldade atual, esvaziando a lista de alongamentos completados e atualizando o progresso.
+      </div>
+
+
+    </div>
   </section>
 </body>
 

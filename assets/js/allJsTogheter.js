@@ -448,12 +448,6 @@ function startStretchingPause() {
     ? parseInt(localStorage.getItem('pomodoroLongPause'))
     : parseInt(localStorage.getItem('pomodoroPause'));
 
-  // console.log(
-  //   `Iniciando ${
-  //     isLongPause ? 'uma pausa longa' : 'uma pausa curta'
-  //   } de ${pauseDuration} minutos.`
-  // );
-
   pauseTimeLeftInSeconds = pauseDuration * 60;
   updatePauseCountDownDisplay();
 
