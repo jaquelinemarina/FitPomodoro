@@ -6,7 +6,15 @@
 
 **fitPomodoro** é um timer Pomodoro desenvolvido como parte de um desafio de trabalho em squads para o curso **futuroDev** do **Floripa Mais Tech**, coordenado pelo **Lab365** em parceria com o **SESI** e **SENAC**.
 
-Este projeto visa incentivar práticas de alongamento durante as pausas da técnica de Pomodoro, com pausas divididas em níveis de dificuldade: iniciante, intermediário e avançado. Ao concluir um nível de dificuldades, o usuário é parabenizado e convidado a refazer o mesmo nível ou trocar de nível de dificuldade.
+Este projeto visa incentivar práticas de alongamento durante as do Pomodoro.
+
+As pausas estão divididas em níveis de dificuldade:
+
+- iniciante
+- intermediário
+- avançado.
+
+Ao concluir um nível de dificuldades, o usuário é parabenizado e convidado a refazer ou trocar o nível de dificuldade.
 
 ## Tecnologias Utilizadas
 
