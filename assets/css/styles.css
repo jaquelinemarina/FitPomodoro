@@ -148,23 +148,6 @@ label,
    margin-top: 50px;
 }
 
-.description-container {
-   display: flex;
-   flex-direction: column;
-   justify-content: flex-start;
-   align-items: center;
-   text-align: start;
-   background-color: var(--bone);
-   height: 100%;
-   width: 100%;
-   font-family: poppins;
-   overflow: auto;
-}
-
-.about {
-   width: 750px;
-   margin-bottom: 55px;
-}
 
 h1 {
    color: var(--cornellRed);
@@ -227,6 +210,7 @@ form {
 
 .logo img {
    width: 350px;
+   margin-right: 20px;
 }
 
 .pomodoro {
@@ -575,7 +559,7 @@ form {
 }
 
 .about {
-   width: 500px;
+   width: 750px;
 }
 
 .howToUse {

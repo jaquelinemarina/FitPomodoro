@@ -22,7 +22,52 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bone);
 
 }
 
-.doc-container {}
+.doc-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: start;
+
+  height: 100%;
+  width: 100%;
+  font-family: poppins;
+  overflow: auto;
+}
+
+.about {
+  width: 1000px;
+  margin-bottom: 55px;
+}
+
+h1 {
+  color: var(--cornellRed);
+  margin-top: 55px;
+  margin-bottom: 8px;
+  font-size: 25px;
+  font-family: prata;
+}
+
+span,
+li {
+  font-size: 17px;
+  color: rgb(136, 121, 121);
+}
+
+li {
+  margin-left: 20px;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: rgb(171, 168, 168);
+
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--cornellRed);
+}
