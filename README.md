@@ -4,9 +4,9 @@
 
 # FitPomodoro
 
-**FitPomodoro** é um timer Pomodoro desenvolvido como parte de um desafio de trabalho em squads para o curso **FuturoDev** do **Floripa Mais Tec**, coordenado pelo **Lab365** em parceria com o **SESI** e **SENAC**.
+**FitPomodoro** é um timer Pomodoro desenvolvido como parte de um desafio de trabalho em squads para a formação **FuturoDev** do **Floripa Mais Tec**, coordenado pelo **Lab365** em parceria com o **SESI** e **SENAC**.
 
-Este projeto visa incentivar práticas de alongamento durante as pausas do Pomodoro.
+Este projeto visa incentivar a prática de exercícios de alongamento durante as pausas do Pomodoro.
 
 As pausas estão divididas em níveis de dificuldade:
 
@@ -15,6 +15,9 @@ As pausas estão divididas em níveis de dificuldade:
 - Avançado
 
 Ao concluir um nível de dificuldades, o usuário é parabenizado e convidado a refazer ou trocar o nível de dificuldade.
+
+[FitPomodoro.webm](https://github.com/VanderleiaOliveira/Pomodoro-Fit/assets/153782247/700b8974-607f-40f1-ab3d-faeb304a309c)
+
 
 ## Tecnologias Utilizadas
 
@@ -43,7 +46,7 @@ O uso é intuitivo com interação direta com o navegador.
 
 ## Documentação
 
-A documentação encontra-se no diretório **docs**
+A documentação encontra-se no diretório **docs**.
 
 ## Utilizando a api do API-NINJAS
 
@@ -84,3 +87,4 @@ Após esses passos, seu projeto estará configurado para usar a API-NINJAS de ma
 - Imagens: [ Pixabay ](https://github.com/matiassingers/awesome-readme)
 - Sons: [ Pixabay ](https://pixabay.com/)
 - Icones: [ Font Awesome ](https://fontawesome.com/)
+- Fontes: [ Google Fonts](https://fonts.google.com/)
