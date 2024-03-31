@@ -9,33 +9,574 @@
 </head>
 
 <body>
-  <div class="doc-container">
-    <img class="logo" src="./assets/img/logo2.png" alt="logo">
-    <h1>Documentação das Funções de Modal</h1>
-
-    <div class="doc-functions">
-      <div class="doc-functions-title">showModal() </div>
-      <div class="doc-functions-subtitle">O QUE FAZ:</div>
-      <div class="doc-functions-text">Exibe o modal principal alterando sua classe CSS para torná-lo visível.</div>
-      <div class="doc-functions-subtitle">A FUNÇÃO:</div>
-      <div class="doc-code">
-        <code>
-      function showModal() {
-        const modalBg = document.getElementById('modal');
-        modalBg.classList.add('showModal');
-      }
-    </code>
+  <section class="doc-section">
+    <div class="doc-container">
+      <div>
+        <img class="logo2" src="../assets/img/logo2.png" alt="logo">
       </div>
-      <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
-      <div class="doc-functions-text">
-        <ul>
-          <li>Obtém o elemento Modal: A função seleciona o elemento HTML com o ID modal.</li>
-          <li>Torna o Modal Visível: Adiciona a classe showModal ao elemento, tornando-o visível.</li>
-        </ul>
+      <div>
+        <h1>Documentação das Funções de Modal</h1>
       </div>
     </div>
 
-  </div>
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">showModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Exibe o modal principal alterando sua classe CSS para torná-lo visível.</div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+          function showModal() {
+            const modalBg = document.getElementById('modal');
+            modalBg.classList.add('showModal');
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o elemento Modal: A função seleciona o elemento HTML com o ID modal.<br>
+          - Torna o Modal Visível: Adiciona a classe showModal ao elemento, tornando-o visível
+        </div>
+      </div>
+
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">hideModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Oculta o modal principal removendo sua classe CSS que o torna visível.</div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+          function hideModal() {
+            const modalBg = document.getElementById('modal');
+            modalBg.classList.remove('showModal');
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o elemento Modal: Seleciona o elemento HTML com o ID modal.<br>
+          - Oculta o Modal: Remove a classe showModal do elemento, tornando-o oculto.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">showStretchingModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">
+          Exibe o modal de alongamento, adicionando a classe CSS showModal.
+          Também chama as funções changeTextColorByDifficultyInConfigButton e startStretchingPause para
+          ajustar a cor do texto com base na dificuldade e iniciar a pausa para alongamento.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function showStretchingModal() {
+              const modalStretchingBg = document.getElementById('modal-stretching');
+              modalStretchingBg.classList.add('showModal');
+              changeTextColorByDifficultyInConfigButton();
+              startStretchingPause();
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o elemento Modal de Alongamento: Seleciona o modal específico para alongamento.<br>
+          - Torna o Modal Visível: Adiciona a classe showModal, tornando-o visível.<br>
+          - Ajustes Adicionais: Chama funções para ajustar a interface de acordo com a dificuldade e iniciar o
+          temporizador de alongamento.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">hideStretchingModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">
+          Oculta o modal de alongamento removendo a classe CSS showModal. Restaura o temporizador principal do Pomodoro
+          para a duração definida e atualiza a exibição do contador.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function hideStretchingModal() {
+              const durationMinutes =
+                parseInt(localStorage.getItem('pomodoroDuration')) || 25;
+              timeLeftInSeconds = durationMinutes * 60;
+              updateCountdownDisplay();
+              const modalStretchingBg = document.getElementById('modal-stretching');
+              modalStretchingBg.classList.remove('showModal');
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Atualiza o Temporizador do Pomodoro: Define timeLeftInSeconds com base na duração do Pomodoro armazenada no
+          localStorage ou um valor padrão.<br>
+          - Oculta o Modal de Alongamento: Remove a classe showModal do elemento modal, tornando-o oculto.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">showDescriptionModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">
+          Exibe o modal de descrição, tornando-o visível ao adicionar a classe CSS showModal
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function showDescriptionModal() {
+              const modalDescription = document.getElementById('modal-description');
+              modalDescription.classList.add('showModal');
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o Elemento Modal de Descrição: Seleciona o elemento HTML com o ID específico para o modal de
+          descrição.<br>
+          - Torna o Modal Visível: Adiciona a classe showModal ao elemento, tornando o modal visível.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">hideDescriptionModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">
+          Oculta o modal de descrição, removendo a classe CSS showModal.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function hideDescriptionModal() {
+              const modalDescription = document.getElementById('modal-description');
+              modalDescription.classList.remove('showModal');
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o Elemento Modal de Descrição: Seleciona o elemento HTML com o ID específico para o modal de
+          descrição.<br>
+          - Oculta o Modal: Remove a classe showModal do elemento, tornando o modal oculto.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">showStretchingAllDoneModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">
+          Exibe um modal que informa ao usuário que todos os alongamentos para o nível de dificuldade atual foram
+          concluídos. Isso serve como uma forma de gamificação, incentivando o usuário a completar todos os alongamentos
+          disponíveis.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function showStretchingAllDoneModal() {
+              const modalStretchingAllDoneBg = document.getElementById(
+                'modal-stretching-all-done'
+              );
+              modalStretchingAllDoneBg.classList.add('showModal');
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o Elemento Modal: A função inicia recuperando o elemento do modal que indica a conclusão de todos os
+          alongamentos através do ID modal-stretching-all-done.<br>
+          - Torna o Modal Visível: Em seguida, adiciona a classe showModal ao elemento modal. Esta classe é responsável
+          por alterar o estilo do modal para que ele se torne visível na interface do usuário, informando ao usuário
+          sobre a conclusão dos alongamentos.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">hideStretchingAllDoneModal() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">
+          Oculta o modal que informa ao usuário sobre a conclusão de todos os alongamentos disponíveis para o nível de
+          dificuldade atual. Essa função pode ser chamada quando o usuário deseja fechar o modal e continuar usando o
+          aplicativo.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+            function hideStretchingAllDoneModal() {
+              const modalStretchingAllDoneBg = document.getElementById(
+                'modal-stretching-all-done'
+              );
+              modalStretchingAllDoneBg.classList.remove('showModal');
+            }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - Obtém o Elemento Modal: Semelhante à função showStretchingAllDoneModal, esta função começa recuperando o
+          elemento do modal de conclusão de todos os alongamentos pelo seu ID.<br>
+          - Oculta o Modal: Remove a classe showModal do elemento modal. Remover esta classe muda o estilo do modal de
+          volta para oculto, permitindo ao usuário continuar interagindo com outras partes do aplicativo sem a presença
+          do modal de conclusão.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="doc-container">
+      <div>
+        <h1>A inicialização do sistema. Primeiro acesso</h1>
+      </div>
+    </div>
+
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">função anônima que roda assim que a página é carregada </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Inicializa o sistema verificando as configurações salvas no localStorage. Caso
+          alguma configuração esteja ausente, exibe o modal principal. Também adiciona ouvintes de eventos ao formulário
+          de configurações.</div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>
+
+document.addEventListener('DOMContentLoaded', function () {
+
+  if (localStorage.getItem('pause') === null) {
+    localStorage.setItem('pause', '0');
+  }
+ 
+  hideStretchingModal();
+
+  const username = localStorage.getItem('username');
+  const pomodoroDuration = localStorage.getItem('pomodoroDuration');
+  const pomodoroPause = localStorage.getItem('pomodoroPause');
+  const pomodoroLongPause = localStorage.getItem('pomodoroLongPause');
+  const difficulty = localStorage.getItem('difficulty');
+
+ 
+  if (!username || !pomodoroDuration || !difficulty) {
+    showModal();
+  } else {
+    hideModal();
+    
+    document.getElementById('username').value = username;
+    document.getElementById('pomodoroDuration').value = pomodoroDuration;
+    document.getElementById('pomodoroPause').value = pomodoroPause;
+    document.getElementById('pomodoroLongPause').value = pomodoroLongPause;
+    document.getElementById('difficulty').value = difficulty;
+
+    changeBackgroundByDifficulty();
+    updateLevelProgress();
+    const durationMinutes =
+      parseInt(localStorage.getItem('pomodoroDuration')) || 25;
+    timeLeftInSeconds = durationMinutes * 60;
+    updateCountdownDisplay(); // Atualiza o display pela primeira vez
+  }
+
+  
+  const form = document.getElementById('configPomodoro');
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const pomodoroDuration = document.getElementById('pomodoroDuration').value;
+    const pomodoroPause = document.getElementById('pomodoroPause').value;
+    const pomodoroLongPause =
+      document.getElementById('pomodoroLongPause').value;
+    const difficulty = document.getElementById('difficulty').value;
+
+    localStorage.setItem('username', username);
+    localStorage.setItem('pomodoroDuration', pomodoroDuration);
+    localStorage.setItem('pomodoroPause', pomodoroPause);
+    localStorage.setItem('pomodoroLongPause', pomodoroLongPause);
+    localStorage.setItem('difficulty', difficulty);
+
+    hideModal();
+    changeBackgroundByDifficulty();
+    changeTextColorByDifficultyInConfigButton();
+    const durationMinutes =
+      parseInt(localStorage.getItem('pomodoroDuration')) || 25;
+    timeLeftInSeconds = durationMinutes * 60;
+    updateCountdownDisplay();
+    updateLevelProgress();
+  });
+}); 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Ativação do DOM:</strong><br> A função é ativada quando o documento HTML termina de ser carregado,
+          garantindo
+          que todos os elementos HTML estejam disponíveis.<br>
+          - <strong>Verificação de Configurações:</strong><br> Usa localStorage.getItem para verificar se as
+          configurações necessárias
+          estão
+          presentes.<br>
+          - <strong>Exibição/Ocultação de Modal</strong>:<br> Dependendo da presença das configurações, exibe ou oculta
+          o modal de
+          configurações
+          utilizando as funções showModal e hideModal.<br>
+          - <strong>Preenchimento de Campos:</strong><br> Se as configurações estão presentes, preenche os campos do
+          formulário com os
+          valores salvos.<br>
+          - <strong>Adição de Ouvinte de Eventos ao Formulário:</strong><br> Adiciona um ouvinte de eventos para
+          capturar e processar o
+          envio do formulário de configurações.
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-container">
+      <div>
+        <h1>Muda a Cor de Fundo e dos Botões Conforme a Dificuldade Escolhida</h1>
+      </div>
+    </div>
+
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">changeBackgroundByDifficulty() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Altera a cor de fundo dos elementos com a classe .change-background com base na
+          dificuldade escolhida pelo usuário, que é armazenada no localStorage.</div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function changeBackgroundByDifficulty() {
+            let difficulty = localStorage.getItem('difficulty');
+            let elementsToChange = document.querySelectorAll('.change-background');
+            let backgroundClass = '';
+          
+            switch (difficulty) {
+              case 'beginner':
+                backgroundClass = 'fundoVerde';
+                break;
+              case 'intermediate':
+                backgroundClass = 'fundoAzul';
+                break;
+              case 'expert':
+                backgroundClass = 'fundoVermelho';
+                break;
+            }
+            elementsToChange.forEach((element) => {
+              element.classList.remove('fundoVerde', 'fundoAzul', 'fundoVermelho');
+              element.classList.add(backgroundClass);
+            });
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Recuperação da Dificuldade: </strong><br> Obtém a dificuldade atual do localStorage.
+          Seleção dos Elementos: Seleciona todos os elementos que devem ter o fundo alterado.<br>
+          - <strong>Alteração da Cor de Fundo: </strong><br> Dependendo da dificuldade, altera a classe dos elementos
+          selecionados para mudar a cor de fundo.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">changeTextColorByDifficultyInConfigButton() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Muda a cor do texto dos elementos com a classe .change-text-color baseando-se na
+          dificuldade escolhida. Isso ajuda a manter a consistência visual com a escolha de dificuldade do usuário.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function changeTextColorByDifficultyInConfigButton() {
+            let difficulty = localStorage.getItem('difficulty');
+            let elementsToChangeTextColor =
+              document.querySelectorAll('.change-text-color');
+            let textColorClass = '';
+          
+            switch (difficulty) {
+              case 'beginner':
+                textColorClass = 'textoVerde';
+                break;
+              case 'intermediate':
+                textColorClass = 'textoAzul';
+                break;
+              case 'expert':
+                textColorClass = 'textoVermelho';
+                break;
+            }
+            
+            elementsToChangeTextColor.forEach((element) => {
+              element.classList.remove('textoVerde', 'textoAzul', 'textoVermelho');
+              element.classList.add(textColorClass);
+            });
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Seleção de Elementos: </strong><br> Identifica os elementos cuja cor do texto precisa ser alterada.
+          Determinação da Cor do Texto: Escolhe a classe de cor do texto conforme a dificuldade selecionada.<br>
+          - <strong>Aplicação da Cor do Texto: </strong><br> Atualiza os elementos selecionados com a nova classe de cor
+          do texto.
+        </div>
+      </div>
+    </div>
+
+    <div class="doc-container">
+      <div>
+        <h1>Funcionalidades do Pomodoro e Alongamentos</h1>
+      </div>
+    </div>
+
+    <div class="doc-container">
+      <div class="doc-functions">
+        <div class="doc-functions-title">togglePomodoro(event) </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Inicia ou pausa o temporizador do Pomodoro. Altera o ícone do botão de
+          iniciar/pausar conforme o estado do Pomodoro.</div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function togglePomodoro(event) {
+            event.preventDefault();
+            const playPauseIcon = document.getElementById('playPauseIcon');
+          
+            if (!isPomodoroRunning) {
+              startPomodoro();
+              playPauseIcon.classList.replace('fa-play', 'fa-pause');
+            } else {
+              pausePomodoro();
+              playPauseIcon.classList.replace('fa-pause', 'fa-play');
+            }
+          } 
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Checagem do Estado do Pomodoro: </strong><br> Verifica se o Pomodoro está atualmente rodando..
+          Seleção dos Elementos: Seleciona todos os elementos que devem ter o fundo alterado.<br>
+          - <strong>Alteração do Estado e Ícone: </strong><br> Inicia ou pausa o Pomodoro baseado no seu estado atual e
+          atualiza o ícone do botão correspondente.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">loadStretchings() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Carrega a lista de alongamentos de um arquivo JSON. Esta função é assíncrona e
+          retorna a lista de alongamentos disponíveis.<br><br>
+          <strong>OBS.:</strong> Conforme o proposto no exercício, os alongamentos deveriam ser carregados da Api
+          Ninjas. Isto foi feito através desta página <a href="../api.html" target="_blank">(CLIQUE AQUI) </a> <br>
+          Após seguir as instruções na página é possível consumir da API todos os alongamentos disponíveis pelos níveis
+          de dificuldade e músculos.<br> Com essas informações criamos o stretching.json, adicionado um id para cada
+          alongamento e com o auxílio do chatGPT foram traduzidos todos alongamentos.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>async function loadStretchings() {
+            const response = await fetch('./assets/json/stretching.json');
+            const stretchings = await response.json();
+            return stretchings;
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Fetch dos Dados: </strong><br> Realiza uma chamada fetch ao arquivo JSON contendo os alongamentos.
+          Determinação da Cor do Texto: Escolhe a classe de cor do texto conforme a dificuldade selecionada.<br>
+          - <strong>Retorno dos Dados: </strong><br> Converte a resposta em JSON e retorna os dados.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">showStretching() </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Seleciona e exibe um alongamento aleatório com base na dificuldade atual. Salva
+          o alongamento exibido no localStorage para evitar repetições.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>async function showStretching() {
+            const difficulty = localStorage.getItem('difficulty');
+            const stretchings = await loadStretchings();
+          
+            let key = `previous${
+              difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
+            }Stretchings`;
+          
+            const previousStretchingsForDifficulty = JSON.parse(
+              localStorage.getItem(key) || '[]'
+            );
+          
+            const availableStretchings = stretchings.filter(
+              (stretching) =>
+                stretching.difficulty === difficulty &&
+                !previousStretchingsForDifficulty.includes(stretching.id)
+            );
+          
+            const stretchingToShow =
+              availableStretchings[
+                Math.floor(Math.random() * availableStretchings.length)
+              ];
+          
+            if (stretchingToShow) {
+              document.getElementById('stretchingInstructions').textContent =
+                stretchingToShow.instructions;
+          
+              let imageUrl;
+              switch (difficulty) {
+                case 'beginner':
+                  imageUrl = '/assets/img/alongamentos/iniciante.png';
+                  break;
+                case 'intermediate':
+                  imageUrl = '/assets/img/alongamentos/intermediario.png';
+                  break;
+                case 'expert':
+                  imageUrl = '/assets/img/alongamentos/avancado.png';
+                  break;
+                default:
+                  imageUrl = '/assets/img/alongamentos/default.png';
+              }
+          
+              const imageElement = document.getElementById('stretchingImage');
+              imageElement.innerHTML = `<img src="${imageUrl}">`;
+          
+              saveCompletedStretching(stretchingToShow.id, difficulty);
+            }
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Fetch dos Dados: </strong><br> Realiza uma chamada fetch ao arquivo JSON contendo os alongamentos.
+          Determinação da Cor do Texto: Escolhe a classe de cor do texto conforme a dificuldade selecionada.<br>
+          - <strong>Retorno dos Dados: </strong><br> Converte a resposta em JSON e retorna os dados.
+        </div>
+      </div>
+
+      <div class="doc-functions">
+        <div class="doc-functions-title">saveCompletedStretching(stretchingId, difficulty) </div>
+        <div class="doc-functions-subtitle">O QUE FAZ:</div>
+        <div class="doc-functions-text">Registra um alongamento como concluído no localStorage, salvando o ID do
+          alongamento na lista de alongamentos já realizados para a dificuldade atual. Isso evita a repetição de
+          alongamentos em sessões futuras.
+        </div>
+        <div class="doc-functions-subtitle">A FUNÇÃO:</div>
+        <div class="doc-code">
+          <pre>function saveCompletedStretching(stretchingId, difficulty) {
+            let key = `previous${
+              difficulty.charAt(0).toUpperCase() + difficulty.slice(1)
+            }Stretchings`;
+            let previousStretchings = JSON.parse(localStorage.getItem(key) || '[]');
+            previousStretchings.push(stretchingId);
+            localStorage.setItem(key, JSON.stringify(previousStretchings));
+          }
+</pre>
+        </div>
+        <div class="doc-functions-subtitle"> Explicação passo a passo:</div>
+        <div class="doc-functions-text">
+          - <strong>Acesso ao Armazenamento Local: </strong><br> Recupera a lista atual de alongamentos concluídos para
+          a dificuldade especificada.
+          Determinação da Cor do Texto: Escolhe a classe de cor do texto conforme a dificuldade selecionada.<br>
+          - <strong>Atualização da Lista: </strong><br> Adiciona o novo ID de alongamento à lista e salva a lista
+          atualizada no localStorage.
+        </div>
+      </div>
+
+    </div>
+  </section>
 </body>
 
 </html>
