@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>fitPomodoro</title>
   <link rel="stylesheet" href="./assets/css/styles.css">
-  <link rel="stylesheet" href="./assets/css/jaque.css">
   <link rel="stylesheet" href="./assets/fontawesome/css/all.min.css">
 
 
@@ -108,9 +107,7 @@
   <div id="modal-stretching" class="change-background fundoVerde">
     <div class="modal">
       <div class="modal-content">
-        <div class="modal-stretching-logo">
-          <img src="/assets/img/logo.png" alt="logo" width="300">
-        </div>
+
         <div class="modal-stretching-content">
           <div class="modal-image-stretching" id="stretchingImage"></div>
           <div>
@@ -119,18 +116,19 @@
               onclick="stretchingDone()">FINALIZAR ALONGAMENTO</button>
           </div>
           <div class="modal-text-stretching" id="stretchingText">
-            <div><strong>Nome do alongamento:</strong><span id="stretchingName"></span></div>
-            <div><strong>Equipamento utilizado:</strong><span id="stretchingEquipment"></span></div>
-            <div><strong>Músculo alongado:</strong><span id="stretchingMuscle"></span></div>
-            <div><strong>Instruções:</strong><span id="stretchingInstructions"></span></div>
+            <div class="modal-stretching-logo">
+              <img src="./assets/img/logo.png" alt="logo" width="300">
+            </div>
+            <!-- <div id="stretchingName"></span></div></br>
+            <div id="stretchingEquipment"></div>
+            <div id="stretchingMuscle"></div> -->
+            <div id="stretchingInstructions"></div>
           </div>
-
         </div>
       </div>
     </div>
   </div>
-
-  <!-- FIM MODAL DE Alongamento -->
+  <!-- FIM MODAL DE ALONGAMENTO -->
 
 
 

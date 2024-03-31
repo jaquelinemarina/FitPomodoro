@@ -354,12 +354,12 @@ async function showStretching() {
     ];
 
   if (stretchingToShow) {
-    document.getElementById('stretchingName').textContent =
-      stretchingToShow.name;
-    document.getElementById('stretchingEquipment').textContent =
-      stretchingToShow.equipment;
-    document.getElementById('stretchingMuscle').textContent =
-      stretchingToShow.muscle;
+    // document.getElementById('stretchingName').textContent =
+    //   stretchingToShow.name;
+    // document.getElementById('stretchingEquipment').textContent =
+    //   stretchingToShow.equipment;
+    // document.getElementById('stretchingMuscle').textContent =
+    //   stretchingToShow.muscle;
     document.getElementById('stretchingInstructions').textContent =
       stretchingToShow.instructions;
 
