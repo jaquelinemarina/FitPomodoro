@@ -39,11 +39,11 @@ git clone https://github.com/VanderleiaOliveira/Pomodoro-Fit.git
 
 ## Uso
 
-O uso é intuitivo, não requerendo comandos específicos além da interação direta com o navegador.
+O uso é intuitivo com interação direta com o navegador.
 
-## Uso da API-NINJAS
+## Utilizando a api do API-NINJAS
 
-Para utilizar a API-NINJAS nesta branch, siga os passos abaixo:
+Para utilizar a API-NINJAS, siga os passos abaixo e acesso o arquivo api.html no diretório principal:
 
 ### Obter a API Key da API-NINJAS
 
@@ -74,6 +74,8 @@ Após esses passos, seu projeto estará configurado para usar a API-NINJAS de ma
 
 ## Referência
 
+- Api: [ API Ninjas ](https://api-ninjas.com/)
+- Tradução do retorno da api: [ chatGPT ](https://chat.openai.com/)
 - Cores: [ Coolors ](https://coolors.com/)
 - Imagens: [ Pixabay ](https://github.com/matiassingers/awesome-readme)
 - Sons: [ Pixabay ](https://pixabay.com/)
