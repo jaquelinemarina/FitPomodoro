@@ -132,7 +132,7 @@ label,
 }
 
 .logo2 {
-   width: 330px;
+   width: 350px;
    margin-top: 70px;
    margin-bottom: 10px;
 }
@@ -521,11 +521,7 @@ form {
 }
 
 /* CSS MODAL DE DESCRIÇÃO */
-/* .logo2 {
-   width: 380px;
-   margin-top: 140px;
-   margin-left: 170px;
-} */
+
 
 #exit-icon {
    position: absolute;
